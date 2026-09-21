@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeGuard | Combate às Fake News e Golpes Virtuais</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+</head>
+<body>
+
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i> FakeGuard<span>Digital</span>
+        </div>
+        <div class="nav-right">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="#ferramentas"><i class="fa-solid fa-screwdriver-wrench"></i> Ferramentas</a></li>
+                <li><a href="#dicas"><i class="fa-solid fa-lightbulb"></i> Dicas</a></li>
+                <li><a href="#quiz"><i class="fa-solid fa-gamepad"></i> Quiz</a></li>
+                <li><a href="#denuncia"><i class="fa-solid fa-bullhorn"></i> Denunciar</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema" title="Alternar tema claro/escuro" onclick="alternarTema()">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Hero com Carrossel -->
+    <header id="inicio" class="hero">
+        <div class="hero-search">
+            <form class="hero-search-form" onsubmit="return pesquisarSite(event)" role="search">
+                <div class="search-field">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="siteSearch" placeholder="Pesquisar no site..." aria-label="Pesquisar no site" oninput="pesquisarSite(event)">
+                </div>
+                <select id="siteSearchFilter" aria-label="Filtro de pesquisa" onchange="pesquisarSite(event)">
+                    <option value="todos">Tudo</option>
+                    <option value="ferramentas">Ferramentas</option>
+                    <option value="quiz">Quiz</option>
+                    <option value="dicas">Dicas</option>
+                    <option value="denuncia">Denúncias</option>
+                    <option value="sobre">Sobre</option>
+                </select>
+            </form>
+            <div id="siteSearchResult" class="site-search-result" aria-live="polite"></div>
+        </div>
+
+        <div class="carousel" id="carousel">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                    <span class="badge">Intervenção Digital &amp; Letramento</span>
+                    <h1>Combate a Fake News e Golpes na Internet</h1>
+                    <p>Proteja seus dados, identifique fraudes e aprenda a checar conteúdos suspeitos em poucos cliques.</p>
+                    <div class="hero-buttons">
+                        <a href="#ferramentas" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Analisar Link / Texto</a>
+                        <a href="#quiz" class="btn btn-secondary"><i class="fa-solid fa-gamepad"></i> Fazer o Quiz</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <span class="badge"><i class="fa-solid fa-bolt"></i> Golpes em alta</span>
+                    <h1>Phishing, PIX falso e Perfis Clonados</h1>
+                    <p>Golpistas usam urgência e prêmios fáceis para roubar seus dados. Aprenda a reconhecer os sinais antes de cair.</p>
+                    <div class="hero-buttons">
+                        <a href="#ferramentas" class="btn btn-primary"><i class="fa-solid fa-shield-halved"></i> Verificar Agora</a>
+                        <a href="#dicas" class="btn btn-secondary"><i class="fa-solid fa-lightbulb"></i> Ver Dicas</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <span class="badge"><i class="fa-solid fa-brain"></i> Teste seu conhecimento</span>
+                    <h1>Você Sabe Identificar um Golpe?</h1>
+                    <p>Responda ao nosso quiz interativo e descubra o seu nível de segurança digital em poucos minutos.</p>
+                    <div class="hero-buttons">
+                        <a href="#quiz" class="btn btn-primary"><i class="fa-solid fa-gamepad"></i> Fazer o Quiz</a>
+                        <a href="#denuncia" class="btn btn-secondary"><i class="fa-solid fa-bullhorn"></i> Denunciar Golpe</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-arrow prev" aria-label="Slide anterior" onclick="moverCarrossel(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-arrow next" aria-label="Próximo slide" onclick="moverCarrossel(1)"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- O Problema & Propósito -->
+        <section id="problema" class="section-card">
+            <h2><i class="fa-solid fa-circle-info"></i> Sobre o Projeto</h2>
+            <div class="grid-2">
+                <div class="box">
+                    <h3><i class="fa-solid fa-circle-question"></i> Pergunta Principal</h3>
+                    <p>Como o letramento digital e o acesso a ferramentas de verificação rápida podem prevenir perdas financeiras e a disseminação de desinformação na sociedade?</p>
+                </div>
+                <div class="box">
+                    <h3><i class="fa-solid fa-bullseye"></i> Propósito & Objetivo</h3>
+                    <p>Desenvolver uma intervenção digital prática que capacite os usuários a reconhecer técnicas de engenharia social, checar links e notícias e denunciar tentativas de golpe.</p>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fa-solid fa-code-fork icon"></i>
+                    <h4>Como são criados?</h4>
+                    <p>Uso de inteligência artificial, manipulação de imagem/vídeo (deepfakes), robôs em redes sociais e engenharia social para criar gatilhos de urgência.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-triangle-exclamation icon"></i>
+                    <h4>Quais os danos?</h4>
+                    <p>Prejuízos financeiros com PIX/cartão, chantagem por vazamento de dados, contaminação do aparelho com vírus e desinformação pública.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-user-shield icon"></i>
+                    <h4>Como se prevenir?</h4>
+                    <p>Ativação de autenticação em 2 fatores, desconfiar de ofertas irreais e sempre checar fontes oficiais em portais de notícias conhecidos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramentas Interativas -->
+        <section id="ferramentas" class="section-card">
+            <h2><i class="fa-solid fa-screwdriver-wrench"></i> Ferramentas de Verificação</h2>
+            <p class="subtitle">Utilize nossas ferramentas interativas para analisar conteúdos suspeitos.</p>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('verificador-link', this)"><i class="fa-solid fa-link"></i> Analisar Link (URL)</button>
+                <button class="tab-btn" onclick="switchTab('analisador-texto', this)"><i class="fa-solid fa-message"></i> Analisar Mensagem/Texto</button>
+            </div>
+
+            <!-- Tab 1: Link -->
+            <div id="verificador-link" class="tab-content active">
+                <div class="interactive-box">
+                    <label for="linkInput">Cole a URL para análise:</label>
+                    <div class="input-group">
+                        <input type="text" id="linkInput" placeholder="https://exemplo-promo-suspeita.xyz/pix" onkeydown="if(event.key==='Enter')analisarLink()">
+                        <button onclick="analisarLink()"><i class="fa-solid fa-search"></i> Analisar</button>
+                    </div>
+                    <p class="helper-text"><i class="fa-solid fa-circle-info"></i> Exemplos para testar: <button type="button" class="chip" onclick="preencherExemplo('link','https://bit.ly/premio-pix-gratis.tk')">link suspeito</button> <button type="button" class="chip" onclick="preencherExemplo('link','https://www.bancooficial.com.br/seguro')">link aparentemente ok</button></p>
+                    <div id="linkResult" class="result-box hidden"></div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Texto/Mensagem -->
+            <div id="analisador-texto" class="tab-content">
+                <div class="interactive-box">
+                    <label for="textoInput">Cole o texto da mensagem recebida (WhatsApp, SMS, E-mail):</label>
+                    <textarea id="textoInput" rows="5" placeholder="Ex: PARABÉNS! Você foi contemplado com um PIX de R$ 5.000. Clique no link e confirme seu código..."></textarea>
+                    <button onclick="analisarTexto()"><i class="fa-solid fa-microscope"></i> Analisar Mensagem</button>
+                    <p class="helper-text"><i class="fa-solid fa-circle-info"></i> Exemplos: <button type="button" class="chip" onclick="preencherExemplo('texto','URGENTE! Sua conta está bloqueada, clique no link e informe seu código de verificação para desbloquear')">golpe de banco</button> <button type="button" class="chip" onclick="preencherExemplo('texto','Bom dia, confirmando nossa reunião amanhã às 10h na sala 3.')">mensagem normal</button></p>
+                    <div id="textoResult" class="result-box hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dicas de Prevenção -->
+        <section id="dicas" class="section-card">
+            <h2><i class="fa-solid fa-lightbulb"></i> Dicas de Prevenção</h2>
+            <p class="subtitle">Boas práticas que reduzem drasticamente o risco de cair em golpes digitais.</p>
+            <div class="dicas-grid">
+                <div class="dica-card">
+                    <i class="fa-solid fa-key"></i>
+                    <h4>Use senhas fortes e únicas</h4>
+                    <p>Combine letras, números e símbolos. Nunca reaproveite a mesma senha em bancos e redes sociais.</p>
+                </div>
+                <div class="dica-card">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h4>Ative a verificação em 2 etapas</h4>
+                    <p>Mesmo que a senha vaze, o código extra no celular bloqueia a maioria dos acessos indevidos.</p>
+                </div>
+                <div class="dica-card">
+                    <i class="fa-solid fa-wifi"></i>
+                    <h4>Cuidado com Wi-Fi público</h4>
+                    <p>Evite acessar bancos em redes abertas. Use seus dados móveis para operações sensíveis.</p>
+                </div>
+                <div class="dica-card">
+                    <i class="fa-solid fa-link-slash"></i>
+                    <h4>Desconfie de links encurtados</h4>
+                    <p>Links do tipo bit.ly podem esconder destinos maliciosos. Verifique antes de clicar.</p>
+                </div>
+                <div class="dica-card">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <h4>Cheque a fonte</h4>
+                    <p>Antes de compartilhar uma notícia, confirme se grandes portais também estão publicando.</p>
+                </div>
+                <div class="dica-card">
+                    <i class="fa-solid fa-hand"></i>
+                    <h4>Na dúvida, não clique</h4>
+                    <p>Pare, respire e confirme por um canal oficial. A pressa é a maior aliada dos golpistas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Interativo -->
+        <section id="quiz" class="section-card">
+            <h2><i class="fa-solid fa-graduation-cap"></i> Quiz: Você Sabe Identificar um Golpe?</h2>
+            <p class="subtitle">Responda às questões e descubra o seu nível de segurança digital.</p>
+
+            <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
+            <p class="quiz-counter" id="quizCounter"></p>
+            <div id="quiz-container">
+                <div class="quiz-question" id="question-title">Carregando pergunta...</div>
+                <div class="quiz-options" id="options-container"></div>
+                <div id="quiz-feedback" class="quiz-feedback hidden"></div>
+                <button id="next-btn" class="btn btn-primary hidden" onclick="proximaPergunta()">Próxima Pergunta <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Form de Denúncia -->
+        <section id="denuncia" class="section-card">
+            <h2><i class="fa-solid fa-bullhorn"></i> Central de Denúncias</h2>
+            <p class="subtitle">Sua colaboração ajuda na prevenção de novos ataques.</p>
+
+            <form id="denunciaForm" onsubmit="enviarDenuncia(event)">
+                <div class="form-group">
+                    <label for="tipoInfração" >Tipo de Ocorrência:</label>
+                    <select id="tipoInfração" required>
+                        <option value="">Selecione uma opção...</option>
+                        <option value="phishing">Phishing / Link Malicioso</option>
+                        <option value="fakenews">Notícia Falsa (Fake News)</option>
+                        <option value="perfil_falso">Perfil Falso / Clone em Rede Social</option>
+                        <option value="fraude_pix">Fraude via PIX / Cobrança Indevida</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="urlDenuncia">Link ou Nome do Perfil Suspeito:</label>
+                    <input type="text" id="urlDenuncia" placeholder="Ex: https://... ou @perfil_falso" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">Descrição do Ocorrido:</label>
+                    <textarea id="descricao" rows="4" placeholder="Descreva como recebeu a abordagem ou porque o conteúdo é falso..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Registrar Denúncia</button>
+            </form>
+            <div id="formAlert" class="alert-success hidden">
+                <i class="fa-solid fa-circle-check"></i> Denúncia registrada e enviada para análise com sucesso!
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-dev">
+                <h3><i class="fa-solid fa-code"></i> Desenvolvedores</h3>
+                <ul>
+                    <li><i class="fa-solid fa-user-gear"></i> Pedro Henrique Lopes Cavalcanti <span>Desenvolvedor &amp; Designer</span></li>
+                    <li><i class="fa-solid fa-book-open"></i> Jose Natan França Lira <span>Pesquisas &amp; Referências</span></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-links">
+                <h3><i class="fa-solid fa-compass"></i> Navegação</h3>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#ferramentas">Ferramentas</a></li>
+                    <li><a href="#dicas">Dicas</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                    <li><a href="#denuncia">Denunciar</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">FakeGuard Digital - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
