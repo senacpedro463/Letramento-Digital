@@ -1136,3 +1136,256 @@ footer {
 .footer-dev li span {
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
+
+/* ==========================================================
+   Página da Pesquisa Científica (pesquisa.html)
+   ========================================================== */
+.btn-voltar-menu {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-voltar-menu:hover {
+    background-color: rgba(56, 189, 248, 0.2);
+    color: #fff;
+}
+
+.pesquisa-hero {
+    background: var(--hero-bg);
+    color: #fff;
+    padding: 2.5rem 1rem 3.5rem;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.pesquisa-hero h1 {
+    font-size: 2.2rem;
+    max-width: 900px;
+    margin: 0 auto 0.8rem;
+    line-height: 1.25;
+}
+
+.pesquisa-subtitulo {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 760px;
+    margin: 0 auto 1.8rem;
+}
+
+.pesquisa-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.pesquisa-meta .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    text-align: left;
+}
+
+.pesquisa-meta .meta-item i {
+    color: var(--accent-color);
+}
+
+.pesquisa-container {
+    max-width: 900px;
+}
+
+.sumario-lista {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 8px;
+}
+
+.sumario-lista a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.6rem 0.85rem;
+    border-radius: 8px;
+    background: var(--surface-2);
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.sumario-lista a:hover {
+    transform: translateX(4px);
+    background: var(--surface-3);
+}
+
+.sumario-lista a i {
+    font-size: 0.7rem;
+    color: var(--accent-color);
+}
+
+.pesquisa-container .section-card p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.pesquisa-sub {
+    font-size: 1.08rem;
+    color: var(--secondary-color);
+    margin: 1.6rem 0 0.6rem;
+}
+
+.pesquisa-lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0.5rem 0 1.2rem;
+}
+
+.pesquisa-lista li {
+    background: var(--surface-2);
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+}
+
+.pesquisa-lista.numerada {
+    counter-reset: etapa;
+}
+
+.pesquisa-lista.numerada li {
+    counter-increment: etapa;
+    position: relative;
+    padding-left: 3.4rem;
+}
+
+.pesquisa-lista.numerada li::before {
+    content: counter(etapa);
+    position: absolute;
+    left: 1rem;
+    top: 0.9rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-destaque {
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+.palavras-chave {
+    background: var(--surface-2);
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.9rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+    margin-top: 1rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--dica-bg-1) 0%, var(--dica-bg-2) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.4rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.15);
+}
+
+.stat-numero {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.5px;
+}
+
+.stat-card h4 {
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+}
+
+.stat-card p {
+    font-size: 0.88rem;
+    text-align: left !important;
+    margin-bottom: 0;
+}
+
+.cta-pesquisa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 1.8rem;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+.btn-outline:hover {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.pesquisa-voltar {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .pesquisa-hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .pesquisa-hero {
+        padding: 2rem 1rem 2.8rem;
+    }
+
+    .pesquisa-container .section-card p {
+        text-align: left;
+    }
+
+    .btn-voltar-menu {
+        font-size: 0.78rem;
+        padding: 0.45rem 0.7rem;
+    }
+}
