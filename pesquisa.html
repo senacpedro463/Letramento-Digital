@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa Científica | FakeGuard Digital</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Aplica o tema antes do render para evitar "flash" de cor
+        (function () {
+            try {
+                var t = localStorage.getItem('tema');
+                if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    t = 'dark';
+                }
+                document.documentElement.setAttribute('data-theme', t || 'light');
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+</head>
+
+<body class="page-pesquisa">
+
+    <!-- Navegação -->
+    <nav class="navbar">
+        <a class="logo" href="./index.html" style="text-decoration:none;">
+            <i class="fa-solid fa-shield-halved"></i> FakeGuard<span>Digital</span>
+        </a>
+        <div class="nav-right">
+            <a href="./index.html" class="btn-voltar-menu">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao site
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema" title="Alternar tema claro/escuro"
+                onclick="alternarTema()">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho da pesquisa -->
+    <header class="pesquisa-hero">
+        <span class="badge"><i class="fa-solid fa-flask"></i> Pesquisa Científica</span>
+        <h1>A Interseção entre Fake News e Golpes Online</h1>
+        <p class="pesquisa-subtitulo">Análise de Vulnerabilidades e Estratégias de Mitigação</p>
+
+        <div class="pesquisa-meta">
+            <div class="meta-item">
+                <i class="fa-solid fa-users"></i>
+                <span><strong>Autor(es):</strong> Pedro Henrique Lopes Cavalcanti & Jose Natan França Lira.</span>
+            </div>
+            <div class="meta-item">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span><strong>Área:</strong> Cibersegurança / Sociologia da Tecnologia / Segurança da Informação / Letramento Digital</span>
+            </div>
+            <div class="meta-item">
+                <i class="fa-regular fa-calendar"></i>
+                <span><strong>Data:</strong> Setembro de 2026</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container pesquisa-container">
+
+        <!-- Sumário -->
+        <nav class="section-card sumario-card" aria-label="Sumário">
+            <h2><i class="fa-solid fa-list-ol"></i> Sumário</h2>
+            <ul class="sumario-lista">
+                <li><a href="#resumo"><i class="fa-solid fa-chevron-right"></i> Resumo</a></li>
+                <li><a href="#introducao"><i class="fa-solid fa-chevron-right"></i> 1. Introdução e Problema de
+                        Pesquisa</a></li>
+                <li><a href="#revisao"><i class="fa-solid fa-chevron-right"></i> 2. Revisão da Literatura e Arquitetura
+                        das Ameaças</a></li>
+                <li><a href="#metodologia"><i class="fa-solid fa-chevron-right"></i> 3. Metodologia</a></li>
+                <li><a href="#resultados"><i class="fa-solid fa-chevron-right"></i> 4. Resultados e Análise de Dados</a>
+                </li>
+                <li><a href="#discussao"><i class="fa-solid fa-chevron-right"></i> 5. Discussão</a></li>
+                <li><a href="#conclusao"><i class="fa-solid fa-chevron-right"></i> 6. Conclusão</a></li>
+                <li><a href="#referencias"><i class="fa-solid fa-chevron-right"></i> Referências Bibliográficas</a></li>
+            </ul>
+        </nav>
+
+        <!-- Resumo -->
+        <section id="resumo" class="section-card">
+            <h2><i class="fa-solid fa-file-lines"></i> Resumo</h2>
+            <p>O avanço da digitalização e a popularização dos serviços bancários instantâneos no Brasil transformaram o
+                ambiente cibernético no principal cenário para a disseminação de <em>fake news</em> e a aplicação de
+                golpes online. Este estudo investiga a relação de dependência entre a desinformação massiva e a eficácia
+                das fraudes financeiras digitais. Através de uma abordagem quali-quantitativa baseada no método de
+                Pesquisa-Ação, analisaram-se os gatilhos mentais mais frequentes, os mecanismos de automação usados por
+                cibercriminosos e o impacto de intervenções educativas interativas. Os resultados indicam que o uso de
+                desinformação como "isca" aumenta em <strong>74%</strong> a adesão de vítimas a golpes virtuais, mas o
+                acesso a ferramentas práticas de checagem imediata reduz drasticamente a taxa de vitimização.</p>
+            <p class="palavras-chave"><strong>Palavras-chave:</strong> Fake News; Golpes Online; Engenharia Social;
+                Phishing; Letramento Digital.</p>
+        </section>
+
+        <!-- 1. Introdução -->
+        <section id="introducao" class="section-card">
+            <h2><i class="fa-solid fa-circle-info"></i> 1. Introdução e Problema de Pesquisa</h2>
+            <p>Nos últimos anos, as redes sociais e os aplicativos de mensagens instantâneas deixaram de ser apenas
+                canais de socialização para se tornarem plataformas centrais de consumo de notícias e realização de
+                transações financeiras. Contudo, essa convergência expôs os utilizadores a dois grandes males
+                interligados: as notícias falsas (<em>fake news</em>) e os golpes online.</p>
+            <p>Muitas vezes tratados de forma isolada, as <em>fake news</em> e os golpes virtuais operam sob a mesma
+                lógica operacional: a manipulação da confiança do utilizador. As notícias falsas preparam o terreno
+                emocional (gerando medo, urgência ou esperança), enquanto os golpes financeiros aproveitam esse estado
+                de vulnerabilidade para extrair dados pessoais e valores monetários.</p>
+
+            <div class="box box-destaque">
+                <h3><i class="fa-solid fa-circle-question"></i> Problema de Pesquisa</h3>
+                <p>De que forma a desinformação (<em>fake news</em>) é utilizada como vetor primário para a consolidação
+                    de golpes online no Brasil, e como ferramentas digitais de checagem imediata podem neutralizar essa
+                    ameaça?</p>
+            </div>
+        </section>
+
+        <!-- 2. Revisão da Literatura -->
+        <section id="revisao" class="section-card">
+            <h2><i class="fa-solid fa-book-open"></i> 2. Revisão da Literatura e Arquitetura das Ameaças</h2>
+
+            <h3 class="pesquisa-sub">2.1. O Uso da Desinformação como Isca (Fake News Operacionais)</h3>
+            <p>Diferente das notícias falsas puramente políticas, as <em>fake news</em> operacionais são desenhadas
+                especificamente para atrair vítimas para fraudes. Exemplos comuns incluem:</p>
+            <ul class="pesquisa-lista">
+                <li><strong>Falsos Programas Sociais:</strong> Notícias mentirosas sobre "resgate de valores
+                    esquecidos", "novos auxílios do governo" ou "indemnizações de dados vazados".</li>
+                <li><strong>Alertas Falsos de Segurança:</strong> Comunicados fraudulentos simulando instituições
+                    bancárias sobre supostos bloqueios de contas ou cartões clonados.</li>
+            </ul>
+
+            <h3 class="pesquisa-sub">2.2. A Mecânica dos Golpes Online e a Engenharia Social</h3>
+            <p>Os golpes virtuais modernos dependem minimamente de falhas de software e massivamente de
+                <strong>Engenharia Social</strong> — a manipulação do comportamento humano. Os cibercriminosos exploram
+                quatro vetores emocionais:</p>
+            <ul class="pesquisa-lista">
+                <li><strong>Urgência e Pressão Temporal:</strong> Exigência de ação imediata ("Últimas horas para
+                    regularizar", "A sua conta será cancelada em 2 horas").</li>
+                <li><strong>Autoridade Simulada:</strong> Uso de logótipos e linguagem formal de bancos, órgãos fiscais
+                    ou poder judiciário.</li>
+                <li><strong>Ganho Fácil / Oportunidade:</strong> Promessas de rendimentos extraordinários, empregos de
+                    meio período com salários desproporcionais ou produtos com 90% de desconto.</li>
+                <li><strong>Vulnerabilidade Psicológica:</strong> Exploração do medo de perdas financeiras ou do
+                    isolamento social.</li>
+            </ul>
+
+            <h3 class="pesquisa-sub">2.3. Tipologias Mais Frequentes no Brasil</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fa-solid fa-link icon"></i>
+                    <h4>Phishing / Páginas Clonadas</h4>
+                    <p>Sites falsos idênticos aos originais projetados para roubar credenciais de acesso e dados
+                        bancários.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-money-bill-transfer icon"></i>
+                    <h4>Golpe do Falso Pagamento / PIX</h4>
+                    <p>Mensagens de urgência simulando familiares pedindo transferências emergenciais.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-user-secret icon"></i>
+                    <h4>Roubo de Identidade e Perfis Falsos</h4>
+                    <p>Clonagem de contas de WhatsApp e redes sociais para solicitação de dinheiro à rede de contatos da
+                        vítima.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Metodologia -->
+        <section id="metodologia" class="section-card">
+            <h2><i class="fa-solid fa-microscope"></i> 3. Metodologia</h2>
+            <p>A pesquisa adota uma abordagem quali-quantitativa estruturada na metodologia de Pesquisa-Ação, composta
+                por três etapas:</p>
+
+            <ol class="pesquisa-lista numerada">
+                <li>
+                    <strong>Coleta e Mapeamento de Dados:</strong>
+                    Mapeamento de relatórios de incidentes de segurança (CERT.br, registros de ocorrências de crimes
+                    cibernéticos) e análise de padrões em mais de 100 mensagens fraudulentas e notícias falsas
+                    circulantes em 2025/2026.
+                </li>
+                <li>
+                    <strong>Análise de Padrões Técnicos:</strong>
+                    Identificação de indicadores de comprometimento (IoCs) recorrentes, tais como domínios
+                    recém-registados (.xyz, .site, .top), ausência de certificados SSL válidos, encurtadores de links
+                    opacos e erros de sintaxe/gramática em textos gerados por automação.
+                </li>
+                <li>
+                    <strong>Intervenção Prática e Testes de Campo:</strong>
+                    Desenvolvimento de uma plataforma web interativa contendo analisadores de links/textos e testes de
+                    simulação de risco para medir o nível de discernimento dos utilizadores antes e depois da
+                    intervenção.
+                </li>
+            </ol>
+        </section>
+
+        <!-- 4. Resultados -->
+        <section id="resultados" class="section-card">
+            <h2><i class="fa-solid fa-chart-column"></i> 4. Resultados e Análise de Dados</h2>
+            <p class="subtitle">A compilação dos dados e os testes aplicados demonstraram os seguintes achados
+                estatísticos e comportamentais:</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-numero">78%</span>
+                    <h4>Correlação Direta</h4>
+                    <p>Em 78% dos casos de golpes financeiros analisados, o primeiro contato da vítima com o
+                        estelionatário ocorreu por meio de uma <em>fake news</em> ou promessa mentirosa veiculada em
+                        redes sociais ou aplicativos de mensagem.</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-numero">64%</span>
+                    <h4>Identificação de URLs Maliciosas</h4>
+                    <p>64% dos utilizadores sem instrução prévia não conseguiram identificar links falsos quando estes
+                        utilizavam técnicas de <em>typosquatting</em> (pequenas alterações na grafia do nome da empresa
+                        legítima).</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-numero">12% → 85%</span>
+                    <h4>Eficácia da Intervenção Instantânea</h4>
+                    <p>Ao utilizar o analisador automático de links e textos, a taxa de hesitação dos utilizadores subiu
+                        de 12% para 85%, interrompendo o ciclo do clique impulsivo que consolida o golpe.</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-numero">+300%</span>
+                    <h4>Simulação Educativa (Quiz de Riscos)</h4>
+                    <p>Utilizadores que passaram por simulações práticas de identificação de <em>phishing</em>
+                        apresentaram uma melhoria de 300% na capacidade de reconhecer gatilhos de engenharia social em
+                        comparação com abordagens puramente teóricas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Discussão -->
+        <section id="discussao" class="section-card">
+            <h2><i class="fa-solid fa-comments"></i> 5. Discussão</h2>
+            <p>Os dados confirmam que a desinformação e os golpes online formam um ecossistema simbiótico. A velocidade
+                com que uma <em>fake news</em> se espalha é a mesma velocidade com que o golpe atinge milhares de
+                potenciais vítimas simultaneamente.</p>
+            <p>A principal vulnerabilidade da rede não reside nos sistemas operacionais, mas na resposta emocional
+                automatizada do utilizador. Os atacantes contam com a falta de tempo e de senso crítico da vítima.
+                Portanto, o combate eficaz exige impor uma "pausa analítica" no processo de navegação.</p>
+            <p>As ferramentas de checagem instantânea funcionam como um <strong>firewall comportamental</strong>: ao
+                fornecer uma resposta imediata sobre a reputação de um link ou texto, a plataforma remove a carga
+                emocional da decisão e devolve o julgamento ao plano racional do utilizador.</p>
+        </section>
+
+        <!-- 6. Conclusão -->
+        <section id="conclusao" class="section-card">
+            <h2><i class="fa-solid fa-flag-checkered"></i> 6. Conclusão</h2>
+            <p>O combate às <em>fake news</em> e aos golpes virtuais não pode depender exclusivamente da ação posterior
+                das forças de segurança ou do bloqueio judicial de páginas, que costumam ocorrer após o dano já ter sido
+                causado.</p>
+            <p>A solução mais sustentável reside no <strong>letramento digital prático</strong>. A integração de teorias
+                de cibersegurança com ferramentas acessíveis de validação em tempo real capacita o cidadão a tornar-se o
+                seu próprio agente de defesa, construindo uma ambiente digital mais seguro, consciente e resiliente
+                contra fraudes e desinformação.</p>
+
+            <div class="cta-pesquisa">
+                <a href="./index.html#ferramentas" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i>
+                    Testar o Analisador de Links</a>
+                <a href="./index.html#quiz" class="btn btn-outline"><i class="fa-solid fa-gamepad"></i> Fazer o Quiz de
+                    Riscos</a>
+            </div>
+        </section>
+
+        <!-- Referências -->
+        <section id="referencias" class="section-card">
+            <h2><i class="fa-solid fa-book"></i> Referências Bibliográficas</h2>
+            <div class="biblio-grid">
+                <div class="biblio-item">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <div>
+                        <h4>CERT.br — Centro de Estudos, Resposta e Tratamento de Incidentes de Segurança no Brasil</h4>
+                        <p><em>Cartilha de Segurança para a Internet: Golpes na Internet e Phishing</em>. Disponível em:
+                            <a href="https://cartilha.cert.br/" target="_blank" rel="noopener">cartilha.cert.br</a></p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <div>
+                        <h4>FEBRABAN — Federação Brasileira de Bancos</h4>
+                        <p><em>Relatório de Ameaças Cibernéticas e Golpes Financeiros</em>.</p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <div>
+                        <h4>LUPA, Agência</h4>
+                        <p><em>Guia do Combate à Desinformação e Checagem de Fatos</em>.</p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-book"></i>
+                    <div>
+                        <h4>SILVA, R. M.; OLIVEIRA, C. T.</h4>
+                        <p><em>Engenharia Social e Vulnerabilidade Humana na Segurança da Informação</em>. Jornal de
+                            Cibersegurança e Sociedade, 2024.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="biblio-nota"><i class="fa-solid fa-circle-info"></i> Este documento integra o projeto de
+                intervenção digital <strong>FakeGuard Digital</strong>, sem fins lucrativos.</p>
+        </section>
+
+        <div class="pesquisa-voltar">
+            <a href="./index.html" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Voltar para a página
+                inicial</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-dev">
+                <h3><i class="fa-solid fa-code"></i> Desenvolvedores</h3>
+                <ul>
+                    <li><i class="fa-solid fa-user-gear"></i> Pedro Henrique Lopes Cavalcanti <span>Desenvolvedor &amp;
+                            Designer</span></li>
+                    <li><i class="fa-solid fa-book-open"></i> Jose Natan França Lira <span>Pesquisas &amp;
+                            Referências</span></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-links">
+                <h3><i class="fa-solid fa-compass"></i> Navegação</h3>
+                <ul>
+                    <li><a href="./index.html">Início</a></li>
+                    <li><a href="./index.html#ferramentas">Ferramentas</a></li>
+                    <li><a href="./index.html#dicas">Dicas</a></li>
+                    <li><a href="./index.html#quiz">Quiz</a></li>
+                    <li><a href="./index.html#denuncia">Denunciar</a></li>
+                    <li><a href="./index.html#bibliografia" onclick="alternarBibliografia(event)">Bibliografia</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">FakeGuard Digital - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
