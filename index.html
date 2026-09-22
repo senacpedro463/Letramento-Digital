@@ -6,7 +6,20 @@
     <title>FakeGuard | Combate às Fake News e Golpes Virtuais</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   
+    <script>
+        // Aplica o tema antes do render para evitar "flash" de cor
+        (function () {
+            try {
+                var t = localStorage.getItem('tema');
+                if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    t = 'dark';
+                }
+                document.documentElement.setAttribute('data-theme', t || 'light');
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
 </head>
 <body>
 
@@ -21,6 +34,7 @@
                 <li><a href="#ferramentas"><i class="fa-solid fa-screwdriver-wrench"></i> Ferramentas</a></li>
                 <li><a href="#dicas"><i class="fa-solid fa-lightbulb"></i> Dicas</a></li>
                 <li><a href="#quiz"><i class="fa-solid fa-gamepad"></i> Quiz</a></li>
+                <li><a href="#bibliografia" id="linkBibliografia" onclick="alternarBibliografia(event)"><i class="fa-solid fa-book"></i> Bibliografia</a></li>
                 <li><a href="#denuncia"><i class="fa-solid fa-bullhorn"></i> Denunciar</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema" title="Alternar tema claro/escuro" onclick="alternarTema()">
@@ -46,8 +60,10 @@
                     <option value="quiz">Quiz</option>
                     <option value="dicas">Dicas</option>
                     <option value="denuncia">Denúncias</option>
+                    <option value="bibliografia">Bibliografia</option>
                     <option value="sobre">Sobre</option>
                 </select>
+                <button type="submit" aria-label="Pesquisar"><i class="fa-solid fa-arrow-right"></i></button>
             </form>
             <div id="siteSearchResult" class="site-search-result" aria-live="polite"></div>
         </div>
@@ -196,6 +212,77 @@
             </div>
         </section>
 
+        <!-- Bibliografia (oculta — abre pelo menu) -->
+        <section id="bibliografia" class="section-card bibliografia-card" hidden>
+            <h2><i class="fa-solid fa-book"></i> Bibliografia e Referências</h2>
+            <p class="subtitle">Fontes, estudos e materiais utilizados para embasar as informações deste site.</p>
+
+            <button class="btn btn-voltar" onclick="fecharBibliografia()">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao conteúdo
+            </button>
+
+            <div class="biblio-grid">
+                <div class="biblio-item">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <div>
+                        <h4>SAFERNET BRASIL</h4>
+                        <p><em>Indicadores da Central Nacional de Denúncias de Crimes Cibernéticos</em>. São Paulo: SaferNet, 2024.</p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <div>
+                        <h4>BRASIL. Ministério da Justiça e Segurança Pública</h4>
+                        <p><em>Segurança na Internet: guia de proteção ao consumidor</em>. Brasília: MJSP, 2023.</p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <div>
+                        <h4>BANCO CENTRAL DO BRASIL</h4>
+                        <p><em>Golpes de engenharia social e fraudes em meios de pagamento: cartilha de prevenção</em>. Brasília: BCB, 2024.</p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <div>
+                        <h4>CETIC.BR — Núcleo de Informação e Coordenação do Ponto BR</h4>
+                        <p><em>Segurança da Internet no Brasil: phishing e uso seguro de redes</em>. São Paulo: NIC.br, 2023.</p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-book"></i>
+                    <div>
+                        <h4>FREIRE, Paulo</h4>
+                        <p><em>Educação como prática da liberdade</em>. Rio de Janeiro: Paz e Terra, 1967.</p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-book"></i>
+                    <div>
+                        <h4>MORAN, José Manuel</h4>
+                        <p><em>A educação que desejamos: novos desafios e como chegar lá</em>. Campinas: Papirus, 2007.</p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <div>
+                        <h4>AGÊNCIA LUPA</h4>
+                        <p><em>Metodologia de verificação de fatos e combate à desinformação</em>. São Paulo: Lupa, 2024. Disponível em: <a href="https://lupa.uol.com.br" target="_blank" rel="noopener">lupa.uol.com.br</a></p>
+                    </div>
+                </div>
+                <div class="biblio-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <div>
+                        <h4>WORLD HEALTH ORGANIZATION (OMS)</h4>
+                        <p><em>Infodemic management: combating misinformation online</em>. Genebra: WHO, 2022. Disponível em: <a href="https://www.who.int" target="_blank" rel="noopener">who.int</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="biblio-nota"><i class="fa-solid fa-circle-info"></i> As referências acima serviram de base para o conteúdo educativo deste trabalho de intervenção digital. Este site é um projeto escolar sem fins lucrativos.</p>
+        </section>
+
         <!-- Quiz Interativo -->
         <section id="quiz" class="section-card">
             <h2><i class="fa-solid fa-graduation-cap"></i> Quiz: Você Sabe Identificar um Golpe?</h2>
@@ -263,6 +350,7 @@
                     <li><a href="#ferramentas">Ferramentas</a></li>
                     <li><a href="#dicas">Dicas</a></li>
                     <li><a href="#quiz">Quiz</a></li>
+                    <li><a href="#bibliografia" onclick="alternarBibliografia(event)">Bibliografia</a></li>
                     <li><a href="#denuncia">Denunciar</a></li>
                 </ul>
             </div>
