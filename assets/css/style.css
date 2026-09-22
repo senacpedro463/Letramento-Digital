@@ -726,6 +726,94 @@ input[type="text"]:focus, select:focus, textarea:focus {
     margin-bottom: 0.4rem;
 }
 
+/* Bibliografia */
+.bibliografia-card[hidden] {
+    display: none;
+}
+
+.btn-voltar {
+    background: var(--surface-2);
+    color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-voltar:hover {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.biblio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 1rem;
+}
+
+.biblio-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--surface-2);
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.biblio-item:hover {
+    transform: translateX(4px);
+}
+
+.biblio-item > i {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.biblio-item h4 {
+    font-size: 0.98rem;
+    margin-bottom: 0.3rem;
+    color: var(--primary-color);
+}
+
+.biblio-item p {
+    font-size: 0.87rem;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.biblio-item a {
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.biblio-item a:hover {
+    text-decoration: underline;
+}
+
+.biblio-nota {
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    background: var(--surface-2);
+    border-radius: 8px;
+    font-size: 0.87rem;
+    color: var(--muted-color);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.biblio-nota i {
+    color: var(--accent-color);
+    margin-top: 3px;
+}
+
 /* Quiz Style */
 .quiz-progress {
     height: 8px;
